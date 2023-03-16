@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html{
+  font-family: Sitka Display;
+  font-size: 1.13rem;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: Play;
+  margin: 0;
+}
+
+section{
+  height: 100vh;
+}
+
+.title{
+  position: absolute;
+  top: 40%;
+  left: 10%;
+}
+
+h1{
+  font-size: 5vw;
+}
+
+h2{
+  font-size: 3vw;
+}
+
+.title p{
+  margin-left: 6px;
+}
+
+.zeppelin{
+  position: absolute;
+  width: 30vw;
+  left: 60%;
+  top: 22%;
+  filter: drop-shadow(10px 10px 40px rgba(0, 0, 0, 0.2));
+}
+
+.dust{
+  position: absolute;
+  width: 70vw;
+  right: -30%;
+  bottom: -30%;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+#storyline, #cards{
+  background-color: #D8B78D;
+}
+
+.logo-main{
+  width: 37vw;
+}
+
+#content{
+  background-color:#2C1D10;
+}
+
+#content *{
+  color: #BB762D;
+}
+
+.carousel-item img {
+  height: 50vh;
+}
+
+.carousel-item p {
+  padding-right: 12em;
+}
+
+.card-selector{
+  width: 45vw;
+  margin: auto;
+  margin-bottom: 2vw;
+}
+
+.card-selector div{
+  width: 6em;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.card-selector button{
+  width: 100%;
+}
+
+#cards h1{
+  position: relative;
+  top: 5%;
+  left: 10%;
+}
+
+.buy-button{
+  background-color: #D8B78D;
+  width: 15vw;
+  height: 5vh;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: Play;
+  font-size: 1.4vw;
+  cursor: pointer;
+  margin-top: 10vw;
+  box-shadow: rgba(0, 0, 0, 0.30) 0px 4px 7px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.buy-button:hover{
+  background-color: #BB762D;
+  transition: 300ms;
+}
+
+@media screen and (max-width: 768px) {
+  body, html{
+    font-size: 14px;
+    overflow-x: hidden;
+  }
+  .title p{
+    margin-left: 0;
+  }
+  .title h1{
+    font-size: 9vw;
+  }
+  .zeppelin{
+    position: absolute;
+    width: 100vw;
+    left: 30%;
+    top: 50%;
+  }
+  .dust{
+    display: none;  
+  }
+  .logo-main{
+    width: 80vw;
+  }
+
+  h1{
+    font-size: 10vw;
+  }
+
+  .card-selector{
+    display: none !important;
+  }
+  .carousel{
+    margin-top: 25vh !important;
+  }
+  .carousel-item p {
+    display: none !important;
+  }
+  .carousel-item img {
+    height: 35vh;
+  }
+  
+  .buy-button{
+    width: 35vw;
+    height: 6.5vh;
+    font-size: 7vw;
+    margin-top: 10vh;
+  }
+
+  #buy h1{
+    text-align: center;
+    margin-top: 20vh !important;
+  }
+
+  h2{
+    font-size: 5vw;
+  }
+}

@@ -1,0 +1,41 @@
+html, body {
+    overflow-y: hidden; 
+    overflow-x: hidden; 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0;
+}
+
+#s1, #s2{
+    display: none;
+}
+
+.webgl{
+    position: relative;
+    z-index: 1;
+}
+
+div{
+    z-index: 2;
+    background-color: #D8B78D;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    width: 40vw;
+    border: #2C1D10 3px solid;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+h1{
+    font-family: Play;
+    font-size: 2vw;
+    margin: auto;
+    text-align: center;
+}
+p{
+    margin: auto;
+}
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link href="//db.onlinewebfonts.com/c/5407d14fafe9dab70948bbd421c880be?family=Play" rel="stylesheet" type="text/css"/> 
+    <link href="//db.onlinewebfonts.com/c/ecf2edb722bb790456a7199f4b4cfef8?family=Sitka+Heading" rel="stylesheet" type="text/css"/> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <title>Galaxy Defenders Demo</title>
+  </head>
+  <body>
+    <canvas class="webgl"></canvas>
+    <div id="s0">
+      <h1>This is your Agent!</h1>
+      <p>For this demo the most important section is the GD4A1 Rifle.</p>
+      <p>The number next to the heart symbol is your HP.</p>
+      <p>The number next to the boot symbol is the number of hex-fields you can travel per round.</p>
+      <img src="/img/assets/agent.png" alt="agent">
+      <span>
+        <button onclick="to_step1()">Next</button>
+      </span>
+    </div>
+    <div id="s1">
+      <h1>Step 1</h1>
+      <p>You are the green point on the map.</p>
+      <p>For now your objective is to move towards the enemy and kill him.</p>
+      <p>Click rotate, zoom and move the map around to get an overview of the battlefield.</p>
+      <p>On the right side you can see your agent.</p>
+      <p>On the left you can see your enemy.</p>
+      <span>
+        <button onclick="to_step2()">Next</button>
+        <button onclick="to_step0()">Back</button>
+      </span>
+    </div>
+
+    <div id="s2">
+      <h1>Step 2</h1>
+      <span>
+        <button onclick="to_step3()">Next</button>
+        <button onclick="to_step1()">Back</button>
+      </span>
+    </div>
+
+    <script>
+      function to_step0() {
+        console.log("to_step1");
+        document.getElementById("s0").style.display = "flex";
+        document.getElementById("s1").style.display = "none";
+      }
+
+
+      function to_step1() {
+        console.log("to_step1");
+        document.getElementById("s0").style.display = "none";
+        document.getElementById("s1").style.display = "block";
+        document.getElementById("s2").style.display = "none";
+      }
+      
+      function to_step2() {
+        console.log("to_step2");
+        document.getElementById("s1").style.display = "none";
+        document.getElementById("s2").style.display = "block";
+      }
+    </script>
+    <script type="module" src="/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+  </body>
+</html>
