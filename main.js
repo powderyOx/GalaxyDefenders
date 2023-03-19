@@ -103,7 +103,6 @@ controls.enableDamping = true;
 
 function step2() {
     agent.position.set(0.635, 3, 0.5);
-    
 }
 function step9() {
     enemy.position.set(-1.7, 7, 0.5);

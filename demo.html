@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/img/logo-sm.png" />
     <link rel="stylesheet" href="/css/main.css"/>
     <link rel="stylesheet" href="/css/style.css"/>
     <link href="//db.onlinewebfonts.com/c/5407d14fafe9dab70948bbd421c880be?family=Play" rel="stylesheet" type="text/css"/> 
@@ -32,7 +32,7 @@
         </nav>
       </nav>
     </nav>
-    <div id="s0">
+    <div id="s0" class="textbox step">
       <h1>This is your Agent!</h1>
       <p>For this demo the most important section is the GD4A1 Rifle.</p>
       <p>The number next to the heart symbol is your HP.</p>
@@ -43,7 +43,7 @@
         <button onclick="to_step1()">Next</button>
       </span>
     </div>
-    <div id="s1">
+    <div id="s1" class="textbox step">
       <h1>Step 1</h1>
       <p>You are the green point on the map.</p>
       <p>For now your objective is to move towards the enemy and kill him.</p>
@@ -57,7 +57,7 @@
       </span>
     </div>
 
-    <div id="s2">
+    <div id="s2" class="textbox step">
       <h1>Step 2</h1>
       <p>You (green point) moved towards your opponent (red point).</p>
       <p>The enemy has now been revealed.</p>
@@ -69,7 +69,7 @@
       </span>
     </div>
 
-    <div id="s3">
+    <div id="s3" class="textbox step">
       <h1>Step 3</h1>
       <p><strong>This is how combat works:</strong></p>
       <p>The number of attack die you get in this attack is the number next to the pistol icon on your hero card.</p>
@@ -82,59 +82,87 @@
       </span>
     </div>
 
-    <div id="s4">
-      <h1>Step 4</h1>
-      <p>Lets start your attack.</p>
-      <p>You roll 3 blue dice.</p>
-      <p>This is your result:</p>
-      <p>2x the shield and 1x an explosion symbol</p>
-      <p>The shield symbol means nothing on attack rolls but the explosion icon means you've landed a hit.</p>
-      <span>
-        <button onclick="to_step3()">Back</button>
-        <button onclick="to_step5()">Next</button>
-      </span>
+    <div id="s4" class="step">
+      <div class="dice">
+        <img src="img/dice/b-sh.png" alt="dice">
+        <img src="img/dice/b-sh.png" alt="dice">
+        <img src="img/dice/b-e.png" alt="dice">
+      </div>
+      <div class="textbox">
+        <h1>Step 4</h1>
+        <p>Lets start your attack.</p>
+        <p>You roll 3 blue dice.</p>
+        <p>This is your result:</p>
+        <p>2x the shield and 1x explosion symbol</p>
+        <p>The shield symbol means nothing on attack rolls but the explosion icon means you've landed a hit.</p>
+        <span>
+          <button onclick="to_step3()">Back</button>
+          <button onclick="to_step5()">Next</button>
+        </span>
+      </div>
+    </div>
+    
+
+    <div id="s5" class="step">
+      <div class="dice">
+        <img src="img/dice/b-ea.png" alt="dice">
+        <img src="img/dice/b-sh.png" alt="dice">
+        <img src="img/dice/b-sk.png" alt="dice">
+      </div>
+      <div class="textbox">
+        <h1>Step 5</h1>
+        <p>Now your enemy gets to roll his defense dice for every attack rolls you did.</p>
+        <p>He rolls 3 blue (defense) dice.</p>
+        <p>This is his result:</p>
+        <p>1x an explosion symbol with an ammo icon 1x the shield and 1x a skull</p>
+        <p>The explosion symbol with an ammo icon doesn't mean anything on defense rolls. The shield symbol means that the enemy defelected your hit and he doesn't get any damage.</p>
+        <p>The skull means indicates a fail.</p>
+        <span>
+          <button onclick="to_step4()">Back</button>
+          <button onclick="to_step6()">Next</button>
+        </span>
+      </div>
     </div>
 
-    <div id="s5">
-      <h1>Step 5</h1>
-      <p>Now your enemy gets to roll his defense dice for every attack rolls you did.</p>
-      <p>He rolls 3 blue (defense) dice.</p>
-      <p>This is your result:</p>
-      <p>1x an explosion symbol with an ammo icon 1x the shield and 1x a skull</p>
-      <p>The explosion symbol with an ammo icon doesn't mean anything on defense rolls. The shield symbol means that the enemy defelected your hit and he doesn't get any damage.</p>
-      <p>The skull means indicates a fail.</p>
-      <span>
-        <button onclick="to_step4()">Back</button>
-        <button onclick="to_step6()">Next</button>
-      </span>
+    <div id="s6" class="step">
+      <div class="dice">
+        <img src="img/dice/b-e.png" alt="dice">
+        <img src="img/dice/b-sh.png" alt="dice">
+        <img src="img/dice/b-el.png" alt="dice">
+      </div>
+      <div class="textbox">
+        <h1>Step 6</h1>
+        <p>Your second attack.</p>
+        <p>This is your result:</p>
+        <p>1x an explosion symbol 1x the shield and 1x an explosion symbol with an lightning .</p>
+        <p>You hit your enemy 2 times. The lightning symbol means whatever your weapon says.</p>
+        <p>In this case it means that the enemy has -1 defense dice.</p>
+        <span>
+          <button onclick="to_step5()">Back</button>
+          <button onclick="to_step7()">Next</button>
+        </span>
+      </div>
     </div>
 
-    <div id="s6">
-      <h1>Step 6</h1>
-      <p>Your second attack.</p>
-      <p>This is your result:</p>
-      <p>1x an explosion symbol 1x the shield and 1x an explosion symbol with an lightning .</p>
-      <p>You hit your enemy 2 times. The lightning symbol means whatever your weapon says.</p>
-      <p>In this case it means that the enemy has -1 defense dice.</p>
-      <span>
-        <button onclick="to_step5()">Back</button>
-        <button onclick="to_step7()">Next</button>
-      </span>
+    <div id="s7" class="step">
+      <div class="dice">
+        <img src="img/dice/b-ec.png" alt="dice">
+        <img src="img/dice/b-el.png" alt="dice">
+      </div>
+      <div class="textbox">
+        <h1>Step 7</h1>
+        <p>The enemy's def dice:</p>
+        <p>In our case the enemy only has 2 def dice.</p>
+        <p>He rolls 1x hit with call sign (= nothing) and 1x hit with lightning (= his action REGENERATION was triggerd)</p>
+        <p>He loses 1 armor and 1 HP and regenerates 1 HP so he has still has 4 HP but his armor was destroyed (can't be regenerated).</p>
+        <span>
+          <button onclick="to_step6()">Back</button>
+          <button onclick="to_step8()">Next</button>
+        </span>
+      </div>
     </div>
 
-    <div id="s7">
-      <h1>Step 7</h1>
-      <p>The enemy's def dice:</p>
-      <p>In our case the enemy only has 2 def dice.</p>
-      <p>He rolls 1x hit with call sign (= nothing) and 1x hit with lightning (= his action REGENERATION was triggerd)</p>
-      <p>He loses 1 armor and 1 HP and regenerates 1 HP so he has still has 4 HP but his armor was destroyed (can't be regenerated).</p>
-      <span>
-        <button onclick="to_step6()">Back</button>
-        <button onclick="to_step8()">Next</button>
-      </span>
-    </div>
-
-    <div id="s8">
+    <div id="s8" class="textbox step">
       <h1>Step 8</h1>
       <p>Now it's the enemy's turn:</p>
       <p>At first you need to look how many hex-fields he is away from you.</p>
@@ -146,79 +174,136 @@
       </span>
     </div>
 
-    <div id="s9">
-      <h1>Step 9</h1>
-      <p><strong>Enemy's hit die:</strong></p>
-      <p>1x GD-Symbol (= fail), 2x explosion symbol (= 2x hit)</p>
-      <p><strong>Def die:</strong></p>
-      <p>2x hit (= fail), 1x shield</p>
-      <p><strong>Result:</strong></p>
-      <p>agent loses 1 HP</p>
-      <span>
-        <button onclick="to_step8()">Back</button>
-        <button onclick="to_step10()">Next</button>
-      </span>
+    <div id="s9" class="step">
+      <div class="dice">
+        <img src="img/dice/r-gd.png" alt="dice">
+        <img src="img/dice/r-e.png" alt="dice">
+        <img src="img/dice/r-e.png" alt="dice">
+      </div>
+      <div class="dice">
+        <img src="img/dice/b-e.png" alt="dice">
+        <img src="img/dice/b-e.png" alt="dice">
+        <img src="img/dice/b-sh.png" alt="dice">
+      </div>
+      <div class="textbox">
+        <h1>Step 9</h1>
+        <p><strong>Enemy's hit die:</strong></p>
+        <p>1x GD-Symbol (= fail), 2x explosion symbol (= 2x hit)</p>
+        <p><strong>Def die:</strong></p>
+        <p>2x hit (= fail), 1x shield</p>
+        <p><strong>Result:</strong></p>
+        <p>agent loses 1 HP</p>
+        <span>
+          <button onclick="to_step8()">Back</button>
+          <button onclick="to_step10()">Next</button>
+        </span>
+      </div>
     </div>
 
-    <div id="s10">
-      <h1>Step 10</h1>
-      <p><strong>Your hit die:</strong></p>
-      <p>1x Shield (= fail), 2x explosion symbol with lightning (= 2x hit & -2 def die)</p>
-      <p><strong>Def die:</strong></p>
-      <p>1x hit with callsign</p>
-      <p><strong>Result:</strong></p>
-      <p>Enemy loses 2 HP (2HP left)</p>
-      <span>
-        <button onclick="to_step9()">Back</button>
-        <button onclick="to_step11()">Next</button>
-      </span>
+    <div id="s10" class="step">
+      <div class="dice">
+        <img src="img/dice/b-sh.png" alt="dice">
+        <img src="img/dice/b-el.png" alt="dice">
+        <img src="img/dice/b-el.png" alt="dice">
+      </div>
+      <div class="dice">
+        <img src="img/dice/b-ec.png" alt="dice">
+      </div>
+      <div class="textbox">
+        <h1>Step 10</h1>
+        <p><strong>Your hit dice:</strong></p>
+        <p>1x Shield (= fail), 2x explosion symbol with lightning (= 2x hit & -2 def die)</p>
+        <p><strong>Def die:</strong></p>
+        <p>1x hit with callsign</p>
+        <p><strong>Result:</strong></p>
+        <p>Enemy loses 2 HP (2HP left)</p>
+        <span>
+          <button onclick="to_step9()">Back</button>
+          <button onclick="to_step11()">Next</button>
+        </span>
+      </div>
     </div>
 
-    <div id="s11">
-      <h1>Step 11</h1>
-      <p>Now the enemy is 2 areas away. This means he can attack twice with his PISTOL.</p>
-      <p><strong>Enemy's hit die:</strong></p>
-      <p>2x hit, 1x skull (= fail)</p>
-      <p><strong>Def die:</strong></p>
-      <p>3x shield</p>
-      <p><strong>Result:</strong></p>
-      <p>Nothing happens</p>
-      <span>
-        <button onclick="to_step10()">Back</button>
-        <button onclick="to_step12()">Next</button>
-      </span>
+    <div id="s11" class="step">
+      <div class="dice">
+        <img src="img/dice/r-e.png" alt="dice">
+        <img src="img/dice/r-e.png" alt="dice">
+        <img src="img/dice/r-sk.png" alt="dice">
+      </div>
+      <div class="dice">
+        <img src="img/dice/b-sh.png" alt="dice">
+        <img src="img/dice/b-sh.png" alt="dice">
+        <img src="img/dice/b-sh.png" alt="dice">
+      </div>
+      <div class="textbox">
+        <h1>Step 11</h1>
+        <p>Now the enemy is 2 areas away. This means he can attack twice with his PISTOL.</p>
+        <p><strong>Enemy's hit die:</strong></p>
+        <p>2x hit, 1x skull (= fail)</p>
+        <p><strong>Def die:</strong></p>
+        <p>3x shield</p>
+        <p><strong>Result:</strong></p>
+        <p>Nothing happens</p>
+        <span>
+          <button onclick="to_step10()">Back</button>
+          <button onclick="to_step12()">Next</button>
+        </span>
+      </div>
     </div>
 
-    <div id="s12">
-      <h1>Step 12</h1>
-      <p>2nd attack</p>
-      <p><strong>Enemy's hit die:</strong></p>
-      <p>1x GD-Symbol (= fail), 2x explosion symbol with lightning (= 2x hit)</p>
-      <p><strong>Def die:</strong></p>
-      <p>1x shield, 2x skull</p>
-      <p><strong>Result:</strong></p>
-      <p>-1 HP (9HP left)</p>
-      <span>
-        <button onclick="to_step11()">Back</button>
-        <button onclick="to_step13()">Next</button>
-      </span>
+    <div id="s12" class="step">
+      <div class="dice">
+        <img src="img/dice/r-gd.png" alt="dice">
+        <img src="img/dice/r-el.png" alt="dice">
+        <img src="img/dice/r-el.png" alt="dice">
+      </div>
+      <div class="dice">
+        <img src="img/dice/b-sh.png" alt="dice">
+        <img src="img/dice/b-sk.png" alt="dice">
+        <img src="img/dice/b-sk.png" alt="dice">
+      </div>
+      <div class="textbox">
+        <h1>Step 12</h1>
+        <p>2nd attack</p>
+        <p><strong>Enemy's hit die:</strong></p>
+        <p>1x GD-Symbol (= fail), 2x explosion symbol with lightning (= 2x hit)</p>
+        <p><strong>Def die:</strong></p>
+        <p>1x shield, 2x skull</p>
+        <p><strong>Result:</strong></p>
+        <p>-1 HP (9HP left)</p>
+        <span>
+          <button onclick="to_step11()">Back</button>
+          <button onclick="to_step13()">Next</button>
+        </span>
+      </div>
     </div>
 
-    <div id="s13">
-      <h1>Step 13</h1>
-      <p><strong>Your hit die:</strong></p>
-      <p>1x hit with lightning, 1x hit with ammo (hat & 1 ammo less -> now 3), 1x shield</p>
-      <p><strong>Def die:</strong></p>
-      <p>1x hit with lightning, 1x hit with ammo symbol</p>
-      <p><strong>Result:</strong></p>
-      <p>Enemy loses 2 HP (0HP left)</p>
-      <span>
-        <button onclick="to_step12()">Back</button>
-        <button onclick="to_step14()">Next</button>
-      </span>
+    <div id="s13" class="step">
+      <div class="dice">
+        <img src="img/dice/b-el.png" alt="dice">
+        <img src="img/dice/b-ea.png" alt="dice">
+        <img src="img/dice/b-sh.png" alt="dice">
+      </div>
+      <div class="dice">
+        <img src="img/dice/b-el.png" alt="dice">
+        <img src="img/dice/b-ea.png" alt="dice">
+      </div>
+      <div class="textbox">
+        <h1>Step 13</h1>
+        <p><strong>Your hit die:</strong></p>
+        <p>1x hit with lightning, 1x hit with ammo (hit & 1 ammo less -> now 3), 1x shield</p>
+        <p><strong>Def die:</strong></p>
+        <p>1x hit with lightning, 1x hit with ammo symbol</p>
+        <p><strong>Result:</strong></p>
+        <p>Enemy loses 2 HP (0HP left)</p>
+        <span>
+          <button onclick="to_step12()">Back</button>
+          <button onclick="to_step14()">Next</button>
+        </span>
+      </div>
     </div>
 
-    <div id="s14">
+    <div id="s14" class="textbox step">
       <h1>Step 14</h1>
       <p><strong>You successfully killed the enemy and completed this demo!</strong></p>
       <span>

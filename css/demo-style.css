@@ -11,7 +11,7 @@ div img{
     margin: auto;
 }
 
-#s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9, #s10, #s11, #s12, #s13, #s14, #s15{
+#s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9, #s10, #s11, #s12, #s13, #s14{
     display: none;
 }
 
@@ -20,18 +20,21 @@ div img{
     z-index: 1;
 }
 
-div{
-    z-index: 2;
+.textbox{
     background-color: #D8B78D;
+    width: 40vw;
+    border: #2C1D10 3px solid;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+.step{
+    z-index: 2;
     position: absolute;
     bottom: 5%;
     left: 50%;
     transform: translate(-50%);
     display: flex;
-    width: 40vw;
-    border: #2C1D10 3px solid;
-    border-radius: 10px;
-    flex-direction: column;
 }
 
 h1{
@@ -50,6 +53,7 @@ span{
     display: flex;
     justify-content: flex-end;
     margin: 0 1vw;
+    align-items: center;
 }
 
 span button{
@@ -66,4 +70,16 @@ span button:hover{
     background-color: #9c6021;
     transition: 300ms;
     box-shadow: rgba(0, 0, 0, 0.50) 0px 4px 7px;
+}
+
+.dice{
+    display: flex;
+    justify-content: center;
+    width: 15vw;
+    margin: auto;
+    margin-bottom: 2vh;
+}
+
+.dice img{
+    width: 3.5vw;
 }
