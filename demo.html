@@ -12,11 +12,32 @@
   </head>
   <body>
     <canvas class="webgl"></canvas>
+    <nav class="navbar navbar-expand-lg fixed-top ">
+      <nav class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-3" href="index.html/#buy">
+          <img src="/img/logo-sm.png" alt="Logo" width="70" height="70" class="d-inline-block align-text-top">
+          <h4>Galaxy Defenders</h4>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <nav class="d-flex">
+          <nav class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link text-info" aria-current="page" href="index.html/#buy">Back to the homepage!</a>
+              </li>
+            </ul>
+          </nav>
+        </nav>
+      </nav>
+    </nav>
     <div id="s0">
       <h1>This is your Agent!</h1>
       <p>For this demo the most important section is the GD4A1 Rifle.</p>
       <p>The number next to the heart symbol is your HP.</p>
       <p>The number next to the boot symbol is the number of hex-fields you can travel per round.</p>
+      <p>The EAGLE 1 is your secondary weapon. But we won't need it in this demo.</p>
       <img src="/img/assets/agent.png" alt="agent">
       <span>
         <button onclick="to_step1()">Next</button>
@@ -26,44 +47,188 @@
       <h1>Step 1</h1>
       <p>You are the green point on the map.</p>
       <p>For now your objective is to move towards the enemy and kill him.</p>
-      <p>Click rotate, zoom and move the map around to get an overview of the battlefield.</p>
+      <p>Rotate (left mouse button), zoom (mouse wheel) and move (right mouse button) the map around to get an overview of the battlefield.</p>
       <p>On the right side you can see your agent.</p>
       <p>On the left you can see your enemy.</p>
+      <p>Lets Start!</p>
       <span>
-        <button onclick="to_step2()">Next</button>
         <button onclick="to_step0()">Back</button>
+        <button onclick="to_step2()" id="step2_active">Next</button>
       </span>
     </div>
 
     <div id="s2">
       <h1>Step 2</h1>
+      <p>You (green point) moved towards your opponent (red point).</p>
+      <p>The enemy has now been revealed.</p>
+      <p>Your character reaction is that he can attack an enemy when he gets revealed to him.</p>
+      <p>This means in your first attack turn you can attack twice.</p>
       <span>
-        <button onclick="to_step3()">Next</button>
         <button onclick="to_step1()">Back</button>
+        <button onclick="to_step3()">Next</button>
       </span>
     </div>
 
-    <script>
-      function to_step0() {
-        console.log("to_step1");
-        document.getElementById("s0").style.display = "flex";
-        document.getElementById("s1").style.display = "none";
-      }
+    <div id="s3">
+      <h1>Step 3</h1>
+      <p><strong>This is how combat works:</strong></p>
+      <p>The number of attack die you get in this attack is the number next to the pistol icon on your hero card.</p>
+      <p>For each attack dice you roll, your opponent gets a defense dice.</p>
+      <p>The icon next to the attack dice number indicates which dice you have to use.</p>
+      <p>For an attack dice it can be the blue or the red one. However, the blue dice is always the defense dice.</p>
+      <span>
+        <button onclick="to_step2()">Back</button>
+        <button onclick="to_step4()">Next</button>
+      </span>
+    </div>
 
+    <div id="s4">
+      <h1>Step 4</h1>
+      <p>Lets start your attack.</p>
+      <p>You roll 3 blue dice.</p>
+      <p>This is your result:</p>
+      <p>2x the shield and 1x an explosion symbol</p>
+      <p>The shield symbol means nothing on attack rolls but the explosion icon means you've landed a hit.</p>
+      <span>
+        <button onclick="to_step3()">Back</button>
+        <button onclick="to_step5()">Next</button>
+      </span>
+    </div>
 
-      function to_step1() {
-        console.log("to_step1");
-        document.getElementById("s0").style.display = "none";
-        document.getElementById("s1").style.display = "block";
-        document.getElementById("s2").style.display = "none";
-      }
-      
-      function to_step2() {
-        console.log("to_step2");
-        document.getElementById("s1").style.display = "none";
-        document.getElementById("s2").style.display = "block";
-      }
-    </script>
+    <div id="s5">
+      <h1>Step 5</h1>
+      <p>Now your enemy gets to roll his defense dice for every attack rolls you did.</p>
+      <p>He rolls 3 blue (defense) dice.</p>
+      <p>This is your result:</p>
+      <p>1x an explosion symbol with an ammo icon 1x the shield and 1x a skull</p>
+      <p>The explosion symbol with an ammo icon doesn't mean anything on defense rolls. The shield symbol means that the enemy defelected your hit and he doesn't get any damage.</p>
+      <p>The skull means indicates a fail.</p>
+      <span>
+        <button onclick="to_step4()">Back</button>
+        <button onclick="to_step6()">Next</button>
+      </span>
+    </div>
+
+    <div id="s6">
+      <h1>Step 6</h1>
+      <p>Your second attack.</p>
+      <p>This is your result:</p>
+      <p>1x an explosion symbol 1x the shield and 1x an explosion symbol with an lightning .</p>
+      <p>You hit your enemy 2 times. The lightning symbol means whatever your weapon says.</p>
+      <p>In this case it means that the enemy has -1 defense dice.</p>
+      <span>
+        <button onclick="to_step5()">Back</button>
+        <button onclick="to_step7()">Next</button>
+      </span>
+    </div>
+
+    <div id="s7">
+      <h1>Step 7</h1>
+      <p>The enemy's def dice:</p>
+      <p>In our case the enemy only has 2 def dice.</p>
+      <p>He rolls 1x hit with call sign (= nothing) and 1x hit with lightning (= his action REGENERATION was triggerd)</p>
+      <p>He loses 1 armor and 1 HP and regenerates 1 HP so he has still has 4 HP but his armor was destroyed (can't be regenerated).</p>
+      <span>
+        <button onclick="to_step6()">Back</button>
+        <button onclick="to_step8()">Next</button>
+      </span>
+    </div>
+
+    <div id="s8">
+      <h1>Step 8</h1>
+      <p>Now it's the enemy's turn:</p>
+      <p>At first you need to look how many hex-fields he is away from you.</p>
+      <p>On the enemy's card you can see what he does on what distance to you.</p>
+      <p>In our case he is 1 area away. As a result he attacks with his BLASTER and moves 1 area away.</p>
+      <span>
+        <button onclick="to_step7()">Back</button>
+        <button onclick="to_step9()" id="step9_active">Next</button>
+      </span>
+    </div>
+
+    <div id="s9">
+      <h1>Step 9</h1>
+      <p><strong>Enemy's hit die:</strong></p>
+      <p>1x GD-Symbol (= fail), 2x explosion symbol (= 2x hit)</p>
+      <p><strong>Def die:</strong></p>
+      <p>2x hit (= fail), 1x shield</p>
+      <p><strong>Result:</strong></p>
+      <p>agent loses 1 HP</p>
+      <span>
+        <button onclick="to_step8()">Back</button>
+        <button onclick="to_step10()">Next</button>
+      </span>
+    </div>
+
+    <div id="s10">
+      <h1>Step 10</h1>
+      <p><strong>Your hit die:</strong></p>
+      <p>1x Shield (= fail), 2x explosion symbol with lightning (= 2x hit & -2 def die)</p>
+      <p><strong>Def die:</strong></p>
+      <p>1x hit with callsign</p>
+      <p><strong>Result:</strong></p>
+      <p>Enemy loses 2 HP (2HP left)</p>
+      <span>
+        <button onclick="to_step9()">Back</button>
+        <button onclick="to_step11()">Next</button>
+      </span>
+    </div>
+
+    <div id="s11">
+      <h1>Step 11</h1>
+      <p>Now the enemy is 2 areas away. This means he can attack twice with his PISTOL.</p>
+      <p><strong>Enemy's hit die:</strong></p>
+      <p>2x hit, 1x skull (= fail)</p>
+      <p><strong>Def die:</strong></p>
+      <p>3x shield</p>
+      <p><strong>Result:</strong></p>
+      <p>Nothing happens</p>
+      <span>
+        <button onclick="to_step10()">Back</button>
+        <button onclick="to_step12()">Next</button>
+      </span>
+    </div>
+
+    <div id="s12">
+      <h1>Step 12</h1>
+      <p>2nd attack</p>
+      <p><strong>Enemy's hit die:</strong></p>
+      <p>1x GD-Symbol (= fail), 2x explosion symbol with lightning (= 2x hit)</p>
+      <p><strong>Def die:</strong></p>
+      <p>1x shield, 2x skull</p>
+      <p><strong>Result:</strong></p>
+      <p>-1 HP (9HP left)</p>
+      <span>
+        <button onclick="to_step11()">Back</button>
+        <button onclick="to_step13()">Next</button>
+      </span>
+    </div>
+
+    <div id="s13">
+      <h1>Step 13</h1>
+      <p><strong>Your hit die:</strong></p>
+      <p>1x hit with lightning, 1x hit with ammo (hat & 1 ammo less -> now 3), 1x shield</p>
+      <p><strong>Def die:</strong></p>
+      <p>1x hit with lightning, 1x hit with ammo symbol</p>
+      <p><strong>Result:</strong></p>
+      <p>Enemy loses 2 HP (0HP left)</p>
+      <span>
+        <button onclick="to_step12()">Back</button>
+        <button onclick="to_step14()">Next</button>
+      </span>
+    </div>
+
+    <div id="s14">
+      <h1>Step 14</h1>
+      <p><strong>You successfully killed the enemy and completed this demo!</strong></p>
+      <span>
+        <a href="index.html/#buy">Back to Homepage!</a>
+        <button onclick="to_step13()">Back</button>
+      </span>
+    </div>
+
+    
+    <script type="text/javascript" src="script.js"></script>
     <script type="module" src="/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>

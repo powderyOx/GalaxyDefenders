@@ -2,14 +2,34 @@ import * as THREE from 'three';
 import './css/demo-style.css'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
+const element = document.getElementById("step2_active");
+element.addEventListener("click", step2);
+
+const element1 = document.getElementById("step9_active");
+element1.addEventListener("click", step9);
+
 const scene = new THREE.Scene();
+
+const textureLoader = new THREE.TextureLoader();
+
+// Load the background image
+const backgroundImage = textureLoader.load('img/galaxy.jpg', function (texture) {
+    texture.minFilter = THREE.LinearFilter;
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.offset.set(0, 0);
+    texture.repeat.set(window.innerWidth / texture.image.width, window.innerHeight / texture.image.height);
+});
+
+scene.background = backgroundImage;
+
 
 // board
 const board = new THREE.Mesh(
     new THREE.PlaneGeometry(23, 20),
     new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load('./img/assets/board.png') })
 );
-
+board.position.set(0, 3, 0);
 scene.add(board);
 
 // agent card
@@ -38,7 +58,7 @@ const agent = new THREE.Mesh(
     })
 );
 
-agent.position.set(3.7, 0.1, 0.5);
+agent.position.set(3.85, 3.0, 0.5);
 scene.add(agent);
 
 // enemy symbol on map
@@ -49,7 +69,7 @@ const enemy = new THREE.Mesh(
     })
 );
 
-enemy.position.set(-1.6, 4, 0.5);
+enemy.position.set(-1, 5.7, 0.5);
 scene.add(enemy);
 
 
@@ -80,6 +100,14 @@ renderer.render(scene, camera);
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 
+
+function step2() {
+    agent.position.set(0.635, 3, 0.5);
+    
+}
+function step9() {
+    enemy.position.set(-1.7, 7, 0.5);
+}
 // resize
 window.addEventListener('resize', () => {
     sizes.width = window.innerWidth;

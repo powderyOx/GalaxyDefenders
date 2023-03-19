@@ -101,6 +101,10 @@ h2{
   left: 10%;
 }
 
+#buy h1{
+  margin-top: 9vh;
+}
+
 .buy-button{
   background-color: #D8B78D;
   width: 15vw;
@@ -120,6 +124,7 @@ h2{
 .buy-button:hover{
   background-color: #BB762D;
   transition: 300ms;
+  box-shadow: rgba(0, 0, 0, 0.50) 0px 4px 7px;
 }
 
 @media screen and (max-width: 768px) {

@@ -6,7 +6,12 @@ html, body {
     padding: 0;
 }
 
-#s1, #s2{
+div img{
+    width: 60vh;
+    margin: auto;
+}
+
+#s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9, #s10, #s11, #s12, #s13, #s14, #s15{
     display: none;
 }
 
@@ -34,8 +39,31 @@ h1{
     font-size: 2vw;
     margin: auto;
     text-align: center;
+    line-height: 5vh;
 }
 p{
     margin: auto;
+    text-align: center;
 }
 
+span{
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 1vw;
+}
+
+span button{
+    /*border: #2C1D10 2px solid;*/
+    border: none;
+    border-radius: 10px;
+    background-color: #BB762D;
+    margin: 0.5vh 0.5vw 1.3vh 0.5vw;
+    padding: 0.6% 1.6%;
+    box-shadow: rgba(0, 0, 0, 0.30) 0px 4px 7px;
+}
+
+span button:hover{
+    background-color: #9c6021;
+    transition: 300ms;
+    box-shadow: rgba(0, 0, 0, 0.50) 0px 4px 7px;
+}
